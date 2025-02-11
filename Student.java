@@ -1,25 +1,19 @@
-public class Student extends Person {
-    private String course;
+public class Student {
+    String name;
+    int age;
+    double gpa;
+    boolean isEnrolled;
+    static int numOfStudents;
 
-    // Constructor
-    public Student(String name, int age, String course) {
-        super(name, age); // Call the constructor of the superclass
-        this.course = course;
+    Student (String name, int age, double gpa) {
+        this.name = name;
+        this.age = age;
+        this.gpa = gpa;
+        isEnrolled = true;
+        numOfStudents++;
     }
 
-    // Getter og setter
-    public String getCourse() {
-        return course;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
-    //Overrider displayInfo
-    @Override
-    public void displayInfo() {
-        super.displayInfo();
-        System.out.println("Course: " + course);
+     static void numStudents() {
+        System.out.println(numOfStudents);
     }
 }
