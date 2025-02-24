@@ -44,8 +44,38 @@ public class Board {
     }
 
     //Metoder for å sjekke 4 på rad
-    private boolean checkHorizontalWin(char piece) { return false; } 
-    private boolean checkVerticalWin(char piece) { return false; } 
+    private boolean checkHorizontalWin(char piece) { 
+        for (int i = 0; i < rows; i++) {
+            int counter = 0; //Teller nullstilles for hver rad
+            for (int j = 0; j < cols; j++) {
+                if (board[i][j] == piece) {
+                    counter += 1;
+                    if (counter == 4) {
+                        return true;
+                    }
+                } else {
+                    counter = 0;
+                }
+            }
+        }
+        return false;
+    } 
+    private boolean checkVerticalWin(char piece) { 
+        for (int j = 0; j < cols; j++) {
+            int counter = 0; //Teller nullstilles for hver kolonne
+            for (int i = 0; i < rows; i++) {
+                if (board[i][j] == piece) {
+                    counter += 1;
+                    if (counter == 4) {
+                        return true;
+                    }
+                } else {
+                    counter = 0;
+                }
+            }
+        }
+        return false;
+    } 
     private boolean checkDiagonalWin(char piece) { return false; } 
 
     // Printer brettet til konsollen (for debugging)
@@ -79,6 +109,15 @@ public class Board {
         System.out.println("------");
     
         board.dropPiece(5, 'X');
+        board.printBoard();
+        System.out.println("------");
+        board.dropPiece(4, 'X');
+        board.printBoard();
+        System.out.println("------");
+        board.dropPiece(3, 'X');
+        board.printBoard();
+        System.out.println("------");
+        board.dropPiece(2, 'X');
         board.printBoard();
         System.out.println("------");
     
