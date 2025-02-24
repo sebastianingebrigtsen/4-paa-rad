@@ -25,18 +25,19 @@ public class Board {
     }
 
     //Plasserer en brikke i en kolonne
-    public boolean dropPiece(int column, char piece) {
+    public int dropPiece(int column, char piece) {
         if (column < 0 || column >= cols || board[0][column] != empty) {
-            return false; //Ugyldig trekk
+            return -1; // Ugyldig trekk
         }
         for (int r = rows -1; r >= 0; r--) {
             if (board[r][column] == empty) {
                 board[r][column] = piece;
-                return true;
+                return r; // Returnerer raden hvor brikken ble plassert
             }
         }
-        return false;
+        return -1; // Ugyldig trekk
     }
+    
 
     //Sjekker om det er fire på rad
     public boolean checkWin(char piece) {
@@ -107,13 +108,16 @@ public class Board {
 
     // Printer brettet til konsollen (for debugging)
     public void printBoard() {
+        System.out.println(" 0 1 2 3 4 5 6 "); // Kolonnenummer på toppen
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 System.out.print(board[r][c] + " ");
             }
             System.out.println();
         }
+        System.out.println("---------------"); // Skillelinje
     }
+    
 
 
     // Tilbakestiller brettet
@@ -124,32 +128,38 @@ public class Board {
     public static void main(String[] args) {
         Board board = new Board();
         
-        board.printBoard(); // Printer tomt brett først
+        board.printBoard(); 
         System.out.println("------");
     
         board.dropPiece(5, 'X');
-        board.printBoard();
+        board.printBoard(); 
         System.out.println("------");
     
         board.dropPiece(5, 'O');
-        board.printBoard();
+        board.printBoard(); 
         System.out.println("------");
     
-        board.dropPiece(5, 'X');
-        board.printBoard();
-        System.out.println("------");
         board.dropPiece(4, 'X');
-        board.printBoard();
-        System.out.println("------");
-        board.dropPiece(3, 'X');
-        board.printBoard();
-        System.out.println("------");
-        board.dropPiece(2, 'X');
-        board.printBoard();
+        board.printBoard(); 
         System.out.println("------");
     
-        board.dropPiece(5, 'O');
-        board.printBoard();
+        board.dropPiece(3, 'X');
+        board.printBoard(); 
+        System.out.println("------");
+    
+        board.dropPiece(2, 'X');
+        board.printBoard(); 
+        System.out.println("------");
+    
+        // TESTER OM NOEN HAR VUNNET
+        if (board.checkWin('X')) {
+            System.out.println("X har vunnet!");
+        } else if (board.checkWin('O')) {
+            System.out.println("O har vunnet!");
+        } else {
+            System.out.println("Ingen har vunnet ennå.");
+        }
     }
+    
     
 }
