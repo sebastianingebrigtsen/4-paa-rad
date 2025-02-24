@@ -1,23 +1,26 @@
-//Startfilen for JavaFX-appen
-
 package connect4;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import java.io.IOException;
 
 public class Connect4App extends Application {
     @Override
     public void start(Stage primaryStage) {
-        Label label = new Label("Velkommen til 4 på rad!");
-        StackPane root = new StackPane(label);
-        Scene scene = new Scene(root, 1000, 500);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/connect4/App.fxml"));
+            Pane root = loader.load();
+            Scene scene = new Scene(root);
 
-        primaryStage.setTitle("4 på rad");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            primaryStage.setTitle("4 på rad");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
