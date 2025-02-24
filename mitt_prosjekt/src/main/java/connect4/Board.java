@@ -76,7 +76,34 @@ public class Board {
         }
         return false;
     } 
-    private boolean checkDiagonalWin(char piece) { return false; } 
+    private boolean checkDiagonalWin(char piece) {
+        // Sjekker høyre-ned diagonaler
+        for (int i = 0; i < rows - 3; i++) { // Må ha plass til 4 rader nedover
+            for (int j = 0; j < cols - 3; j++) { // Må ha plass til 4 kolonner til høyre
+                if (board[i][j] == piece && 
+                    board[i+1][j+1] == piece && 
+                    board[i+2][j+2] == piece && 
+                    board[i+3][j+3] == piece) {
+                    return true;
+                }
+            }
+        }
+    
+        // Sjekker venstre-ned diagonaler
+        for (int i = 0; i < rows - 3; i++) { // Må ha plass til 4 rader nedover
+            for (int j = 3; j < cols; j++) { // Må ha plass til 4 kolonner til venstre
+                if (board[i][j] == piece && 
+                    board[i+1][j-1] == piece && 
+                    board[i+2][j-2] == piece && 
+                    board[i+3][j-3] == piece) {
+                    return true;
+                }
+            }
+        }
+    
+        return false;
+    }
+    
 
     // Printer brettet til konsollen (for debugging)
     public void printBoard() {
