@@ -26,8 +26,12 @@ public class Board {
 
     //Plasserer en brikke i en kolonne
     public int dropPiece(int column, char piece) {
-        if (column < 0 || column >= cols || board[0][column] != empty) {
-            return -1; // Ugyldig trekk
+        if (column < 0 || column >= cols ) {
+            System.out.println("Ugyldig kolonne: " + column);
+            return -1; 
+        } else if (board[0][column] != empty){ //Sjekk om der er fullt i en kolonne
+            System.out.println("Det er allerede fullt i den kolonnen");
+            return -1;
         }
         for (int r = rows -1; r >= 0; r--) {
             if (board[r][column] == empty) {
@@ -108,14 +112,27 @@ public class Board {
 
     // Printer brettet til konsollen (for debugging)
     public void printBoard() {
-        System.out.println(" 0 1 2 3 4 5 6 "); // Kolonnenummer på toppen
+        System.out.println(" 0 1 2 3 4 5 6 ");
+        System.out.println("-----------------");
         for (int r = 0; r < rows; r++) {
+            System.out.print("|");
             for (int c = 0; c < cols; c++) {
-                System.out.print(board[r][c] + " ");
+                System.out.print(board[r][c] + "|");
             }
             System.out.println();
         }
-        System.out.println("---------------"); // Skillelinje
+        System.out.println("-----------------");
+    }
+    
+
+    //Sjekk om spillbrettet er fullt (Uavgjort)
+    public boolean isBoardFull() {
+        for (int c = 0; c >= cols; c++) {
+            if (board[0][c] == empty) {
+                return false; 
+            }
+        }
+        return true; //Brettet er fullt
     }
     
 
@@ -129,34 +146,42 @@ public class Board {
         Board board = new Board();
         
         board.printBoard(); 
-        System.out.println("------");
-    
         board.dropPiece(5, 'X');
         board.printBoard(); 
-        System.out.println("------");
-    
+        board.dropPiece(5, 'X');
+        board.printBoard(); 
+        board.dropPiece(5, 'X');
+        board.printBoard(); 
+        board.dropPiece(5, 'X');
+        board.printBoard(); 
+        board.dropPiece(5, 'X');
+        board.printBoard(); 
+        board.dropPiece(5, 'X');
+        board.printBoard(); 
+        board.dropPiece(5, 'X');
+        board.printBoard(); 
+
         board.dropPiece(5, 'O');
         board.printBoard(); 
-        System.out.println("------");
     
         board.dropPiece(4, 'X');
         board.printBoard(); 
-        System.out.println("------");
     
         board.dropPiece(3, 'X');
         board.printBoard(); 
-        System.out.println("------");
     
         board.dropPiece(2, 'X');
         board.printBoard(); 
-        System.out.println("------");
     
         // TESTER OM NOEN HAR VUNNET
         if (board.checkWin('X')) {
             System.out.println("X har vunnet!");
         } else if (board.checkWin('O')) {
             System.out.println("O har vunnet!");
-        } else {
+        } else if (board.isBoardFull()) {
+            System.out.println("Brettet er fullt, uavgjort");
+        } 
+        else {
             System.out.println("Ingen har vunnet ennå.");
         }
     }
