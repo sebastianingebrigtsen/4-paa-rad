@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Board",
+            "request": "launch",
+            "mainClass": "connect4.Board",
+            "projectName": "connect4"
+        },
+        {
+            "type": "java",
+            "name": "Connect4App",
+            "request": "launch",
+            "mainClass": "connect4.Connect4App",
+            "projectName": "connect4"
+        },
+        {
+            "type": "java",
+            "name": "GameLogic",
+            "request": "launch",
+            "mainClass": "connect4.GameLogic",
+            "projectName": "connect4"
+        }
+    ]
+}
