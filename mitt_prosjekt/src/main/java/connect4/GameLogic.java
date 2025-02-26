@@ -43,7 +43,7 @@ public class GameLogic {
             
             board.printBoard();
 
-            // Sjekk om nåværende spiller har vunnet
+            // Sjekk om spilleren har vunnet
             if (board.checkWin(currentPlayer.piece)) {
                 System.out.println(currentPlayer.name + " (" + currentPlayer.piece + ") har vunnet! 🎉");
                 break;

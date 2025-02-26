@@ -127,7 +127,7 @@ public class Board {
 
     //Sjekk om spillbrettet er fullt (Uavgjort)
     public boolean isBoardFull() {
-        for (int c = 0; c >= cols; c++) {
+        for (int c = 0; c < cols; c++) {
             if (board[0][c] == empty) {
                 return false; 
             }
