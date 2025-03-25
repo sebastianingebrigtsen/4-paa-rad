@@ -14,6 +14,8 @@ public class Connect4Controller {
 
     private final Board board = new Board();     // Brettet
     private char currentPlayer = 'X';            // Rød starter
+    private boolean gameOver = false;
+
 
     @FXML
     private GridPane grid;                       // Spillbrettet i GUI
@@ -31,10 +33,10 @@ public class Connect4Controller {
     // Starter nytt spill
     @FXML
     private void resetGame() {
-        Resettable resettableBoard = board;
-        resettableBoard.reset();                 // Tømmer brettet
-        currentPlayer = 'X';                     // Rød starter
-        drawBoard();                             // Tegner på nytt
+        board.reset();
+        currentPlayer = 'X';
+        gameOver = false; // Tillater nye trekk
+        drawBoard();
         statusLabel.setText("🔴 Rød starter");
     }
 
@@ -66,27 +68,25 @@ public class Connect4Controller {
 
     // Når en spiller trykker på en kolonne
     private void dropPiece(int column) {
+        if (gameOver) return; // Forhindrer trekk etter at noen har vunnet
+    
         int row = board.dropPiece(column, currentPlayer);
-
-        if (row == -1) {
-            statusLabel.setText("Ugyldig trekk. Prøv en annen kolonne.");
-            return;
+        if (row != -1) {
+            drawBoard();
+    
+            if (board.checkWin(currentPlayer)) {
+                statusLabel.setText((currentPlayer == 'X' ? "🔴 Rød" : "🟡 Gul") + " har vunnet!");
+                gameOver = true; // Spill avsluttes
+                return;
+            } else if (board.isBoardFull()) {
+                statusLabel.setText("Uavgjort! Brettet er fullt.");
+                gameOver = true; // Spill avsluttes
+                return;
+            }
+    
+            switchPlayer();
+            statusLabel.setText((currentPlayer == 'X' ? "🔴 Rød" : "🟡 Gul") + " sin tur");
         }
-
-        drawBoard();
-
-        if (board.checkWin(currentPlayer)) {
-            statusLabel.setText((currentPlayer == 'X' ? "🔴 Rød" : "🟡 Gul") + " har vunnet!");
-            return;
-        }
-
-        if (board.isBoardFull()) {
-            statusLabel.setText("Uavgjort! Brettet er fullt.");
-            return;
-        }
-
-        switchPlayer(); // Går videre til neste spiller
-        statusLabel.setText((currentPlayer == 'X' ? "🔴 Rød" : "🟡 Gul") + " sin tur");
     }
 
     // Bytter spiller
