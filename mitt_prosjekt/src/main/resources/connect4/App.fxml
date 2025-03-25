@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.layout.HBox?>
 
 
 
@@ -16,4 +16,11 @@
     <GridPane fx:id="grid" styleClass="grid" />
 
     <Button text="Start nytt spill" onAction="#resetGame" styleClass="reset-button"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Lagre spill" onAction="#saveGame" styleClass="reset-button"/>
+        <Button text="Last spill" onAction="#loadGame" styleClass="reset-button"/>
+    </HBox>
 </VBox>
+
+

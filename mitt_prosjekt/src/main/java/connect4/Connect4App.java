@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Connect4App extends Application {
+
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -16,9 +17,9 @@ public class Connect4App extends Application {
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/connect4/style.css").toExternalForm());
 
-
             primaryStage.setTitle("4 på rad");
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false); // Fikser størrelsen
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
