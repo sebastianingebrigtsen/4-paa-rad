@@ -1,10 +1,8 @@
 # 4 på rad – Dokumentasjon
 
-### Kandidat: [Ditt navn her]
+### Kandidat: Sebastian Westin Ingebrigtsen
 
 ### Fag: TDT4100 – Objektorientert programmering
-
-### Dato: [Innleveringsdato]
 
 ---
 
@@ -24,7 +22,7 @@ Applikasjonen er testet med JUnit 5, med fokus på spilllogikk og filhåndtering
 
 Her er et klassediagram som viser struktur og sammenhenger mellom de viktigste klassene i applikasjonen:
 
-![Klassediagram](/java/digram.png)
+![Klassediagram](diagram.png)
 
 ---
 
