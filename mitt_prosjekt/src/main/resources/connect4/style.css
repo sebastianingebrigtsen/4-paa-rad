@@ -1,0 +1,40 @@
+.grid {
+  -fx-background-color: #1e272e;
+  -fx-padding: 20px;
+  -fx-hgap: 5px;
+  -fx-vgap: 5px;
+}
+
+.button {
+  -fx-font-size: 20px;
+  -fx-min-width: 50px;
+  -fx-min-height: 50px;
+  -fx-background-radius: 100%;
+  -fx-border-radius: 100%;
+  -fx-font-weight: bold;
+}
+
+.x-piece {
+  -fx-background-color: red;
+  -fx-text-fill: white;
+}
+
+.o-piece {
+  -fx-background-color: gold;
+  -fx-text-fill: black;
+}
+
+.reset-button {
+  -fx-font-size: 14px;
+  -fx-padding: 8px 12px;
+  -fx-background-radius: 4;
+  -fx-border-radius: 4;
+  -fx-background-color: #ced6e0;
+  -fx-text-fill: black;
+}
+
+.status-label {
+  -fx-font-size: 18px;
+  -fx-text-fill: rgb(0, 0, 0);
+  -fx-font-weight: bold;
+}

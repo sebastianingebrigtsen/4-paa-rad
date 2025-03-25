@@ -134,57 +134,15 @@ public class Board {
         }
         return true; //Brettet er fullt
     }
+
+    public char getPiece(int row, int col) {
+        return board[row][col];
+    }
+    
     
 
 
     // Tilbakestiller brettet
     public void resetBoard() {
         initializeBoard();
-    }
-    
-    public static void main(String[] args) {
-        Board board = new Board();
-        
-        board.printBoard(); 
-        board.dropPiece(5, 'X');
-        board.printBoard(); 
-        board.dropPiece(5, 'X');
-        board.printBoard(); 
-        board.dropPiece(5, 'X');
-        board.printBoard(); 
-        board.dropPiece(5, 'X');
-        board.printBoard(); 
-        board.dropPiece(5, 'X');
-        board.printBoard(); 
-        board.dropPiece(5, 'X');
-        board.printBoard(); 
-        board.dropPiece(5, 'X');
-        board.printBoard(); 
-
-        board.dropPiece(5, 'O');
-        board.printBoard(); 
-    
-        board.dropPiece(4, 'X');
-        board.printBoard(); 
-    
-        board.dropPiece(3, 'X');
-        board.printBoard(); 
-    
-        board.dropPiece(2, 'X');
-        board.printBoard(); 
-    
-        // TESTER OM NOEN HAR VUNNET
-        if (board.checkWin('X')) {
-            System.out.println("X har vunnet!");
-        } else if (board.checkWin('O')) {
-            System.out.println("O har vunnet!");
-        } else if (board.isBoardFull()) {
-            System.out.println("Brettet er fullt, uavgjort");
-        } 
-        else {
-            System.out.println("Ingen har vunnet ennå.");
-        }
-    }
-    
-    
-}
+    } }

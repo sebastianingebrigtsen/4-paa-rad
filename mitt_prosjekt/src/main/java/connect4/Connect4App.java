@@ -14,6 +14,8 @@ public class Connect4App extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/connect4/App.fxml"));
             Pane root = loader.load();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/connect4/style.css").toExternalForm());
+
 
             primaryStage.setTitle("4 på rad");
             primaryStage.setScene(scene);
