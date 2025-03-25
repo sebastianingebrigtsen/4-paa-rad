@@ -24,9 +24,7 @@ Applikasjonen er testet med JUnit 5, med fokus på spilllogikk og filhåndtering
 
 Her er et klassediagram som viser struktur og sammenhenger mellom de viktigste klassene i applikasjonen:
 
-![Klassediagram](diagram.png)
-
-> _(Hvis du ikke har et bilde: Bytt ut med en link eller legg ved som PDF-bilde i innleveringen.)_
+![Klassediagram](/java/digram.png)
 
 ---
 
